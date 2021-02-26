@@ -6,12 +6,11 @@ import carouselStyles from "../styles/CarouselStyles";
 const useStyles = createUseStyles(carouselStyles);
 
 const Carousel = ({
-  content,
+  content=[],
   crop = true,
   infinite = false,
   width = "400",
-  height = width,
-  styles = {}
+  height = width
 }) => {
   const makeHtmlContent = cont =>
     cont.map(el => {

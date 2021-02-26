@@ -17,9 +17,10 @@ const App = () => {
   return (
     <div className={style.item}>
       <Carousel
-        crop={true}
-        infinite={false}
-        width="400"
+        crop={false}
+        infinite={true}
+        width="600"
+        height="300"
         content={[
           `<div>hello</div>`,
           `<video controls>

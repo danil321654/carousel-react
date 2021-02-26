@@ -6,7 +6,7 @@ import carouselStyles from "../styles/CarouselStyles";
 const useStyles = createUseStyles(carouselStyles);
 
 const Carousel = ({
-  content=[],
+  content = [],
   crop = true,
   infinite = false,
   width = "400",
@@ -86,6 +86,23 @@ const Carousel = ({
     setOrigin(0);
     setScrollPos(0);
   };
+  const handleMouseDown = e => {
+    toggleScrolling(true);
+    setOrigin(e.clientX);
+  };
+
+  const handleMouseUp = e => {
+    if (
+      origin >= +realSize.x + realSize.width * 0.8 &&
+      curEl != carouselContent.length - 1
+    ) {
+      if (infinite && curEl == carouselContent.length - 2) setCurEl(0);
+      else setCurEl(curEl + 1);
+    } else if (origin <= +realSize.x + realSize.width * 0.2 && curEl != 0)
+      setCurEl(curEl - 1);
+
+    setOrigin(0);
+  };
 
   return (
     <div className={style.wrapper} ref={carousel}>
@@ -94,6 +111,8 @@ const Carousel = ({
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
       >
         {carouselContent.map((el, i) => (
           <div key={i} className={style.block} dangerouslySetInnerHTML={el} />

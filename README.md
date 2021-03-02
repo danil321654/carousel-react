@@ -11,7 +11,7 @@
 5 props:
 
 1. children - array of HTML objects for example children = [\<div>hello\</div>];
-2. crop - boolean (crop content to container) by deafult TRUE
+2. crop - boolean (crop content to container) by default TRUE
 3. infinite - boolean (enables infinite scrolling) by default FALSE
 4. width - string or number (width in pixels !!!!! without 'px' !!!!!) by default 400
 5. height - string or number (width in pixels !!!!! without 'px' !!!!!) by default equals width

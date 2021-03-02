@@ -58,5 +58,21 @@ export default {
     height: "10px",
     backgroundColor: "black",
     boxSizing: "border-box"
+  },
+  croppedStyle: {
+    objectFit: "cover",
+    width: "100%",
+    height: "100%",
+    pointerEvents: "none",
+    userSelect: "none"
+  },
+  fullStyle: {
+    objectFit: "cover",
+    width: "auto",
+    maxWidth: "100%",
+    height: "auto",
+    maxHeight: "100%",
+    pointerEvents: "none",
+    userSelect: "none"
   }
 };

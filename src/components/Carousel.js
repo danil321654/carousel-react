@@ -1,5 +1,5 @@
-import React, {useState, useLayoutEffect, useRef} from "react";
-import {createUseStyles} from "react-jss";
+import React, { useState, useLayoutEffect, useRef } from "react";
+import { createUseStyles } from "react-jss";
 
 import carouselStyles from "../styles/CarouselStyles";
 
@@ -12,9 +12,6 @@ const Carousel = ({
   width = "400",
   height = width
 }) => {
-  const [carouselContent, setCarouselContent] = useState(
-    infinite ? [...children, children[0]] : children
-  );
   const [origin, setOrigin] = useState(0);
   const [scrolling, toggleScrolling] = useState(false);
   const [scrollPos, setScrollPos] = useState(0);
@@ -24,12 +21,14 @@ const Carousel = ({
     height
   });
   const carousel = useRef();
+  const carouselContent = infinite ? [...children, children[0]] : children;
   const style = useStyles({
     scrollPos: curEl * (realSize.width - 2) + scrollPos,
     width,
     height,
     scrolling
   });
+
   useLayoutEffect(() => {
     const updateRealWidth = () =>
       setRealSize(carousel.current.getBoundingClientRect());
@@ -126,21 +125,21 @@ const Carousel = ({
           <div
             key={i}
             className={style.block}
-            children={React.cloneElement(el, {
-              className: crop ? style.croppedStyle : style.fullStyle,
-              unselectable: "on"
+          >
+            {React.cloneElement(el, {
+              className: crop ? style.croppedStyle : style.fullStyle
             })}
-          ></div>
+          </div>
         ))}
       </div>
       <div className={style.select}>
-        {[...Array(children.length).keys()].map((el, i) => (
+        {children.map((el, i) => (
           <div
             key={i}
             className={
-              el == curEl ? style.selectCircleSelected : style.selectCircle
+              i == curEl ? style.selectCircleSelected : style.selectCircle
             }
-            onClick={() => el != curEl && setCurEl(el)}
+            onClick={() => i != curEl && setCurEl(i)}
           />
         ))}
       </div>

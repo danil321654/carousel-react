@@ -12,6 +12,9 @@ const Carousel = ({
   width = "400",
   height = width
 }) => {
+
+  const carouselContent = infinite ? [...children, children[0]] : children;
+  
   const [origin, setOrigin] = useState(0);
   const [scrolling, toggleScrolling] = useState(false);
   const [scrollPos, setScrollPos] = useState(0);
@@ -21,7 +24,6 @@ const Carousel = ({
     height
   });
   const carousel = useRef();
-  const carouselContent = infinite ? [...children, children[0]] : children;
   const style = useStyles({
     scrollPos: curEl * (realSize.width - 2) + scrollPos,
     width,

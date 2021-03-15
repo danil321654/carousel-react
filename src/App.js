@@ -21,7 +21,6 @@ const App = () => {
         infinite={false}
         width="600"
       >
-
         <div>hello</div>
         <video controls>
           <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />

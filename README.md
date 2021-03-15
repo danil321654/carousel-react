@@ -8,13 +8,12 @@
 
 ## npm start
 
-5 props:
+4 props:
 
-1. children - array of HTML objects for example children = [\<div>hello\</div>];
-2. crop - boolean (crop content to container) by default TRUE
-3. infinite - boolean (enables infinite scrolling) by default FALSE
-4. width - string or number (width in pixels !!!!! without 'px' !!!!!) by default 400
-5. height - string or number (width in pixels !!!!! without 'px' !!!!!) by default equals width
+1. crop - boolean (crop content to container) by default TRUE
+2. infinite - boolean (enables infinite scrolling) by default FALSE
+3. width - string or number (width in pixels !!!!! without 'px' !!!!!) by default 400
+4. height - string or number (width in pixels !!!!! without 'px' !!!!!) by default equals width
 
 
 
